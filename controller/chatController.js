@@ -4,7 +4,7 @@ const chatWithUser = require('./chatWithUsers');
 const sayHiToUser =  (req, res, next) => {
     let message;
     let possibleNextRoutes;
-    let payloads;
+    let resPayloads;
     let lessonComplete = false;
     let chatComplete = false;
     let nextPossibleReply = "";
@@ -15,9 +15,9 @@ const sayHiToUser =  (req, res, next) => {
             if(chatDetails.tag === 'labels-start') {
                 message = chatDetails.text;
                 possibleNextRoutes = converToArray(chatDetails.routes);
-                payloads = converToArray(chatDetails.payloads);
+                resPayloads = converToArray(chatDetails.payloads);
                 if(chatDetails.stage === 'endpoint') lessonComplete = true;
-                if(chatDetails.payloads === 'bye') chatComplete = true;
+                if(chatDetails.resPayloads === 'bye') chatComplete = true;
                 nextPossibleReply = chatDetails.replies;
             }
         }
@@ -28,7 +28,7 @@ const sayHiToUser =  (req, res, next) => {
         success: true,
         message,
         possibleNextRoutes,
-        payloads,
+        resPayloads,
         nextPossibleReply,
         lessonComplete,
         chatComplete

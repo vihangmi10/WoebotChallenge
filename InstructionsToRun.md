@@ -194,4 +194,57 @@ Expected Output
 If the endpoint stage is reached **lessonComplete** will be **true**.  
 If the chat is complete that is user has entered a bye **chatComplete** will be **true**. 
 
+GET ALL ROUTES FOR A LESSON 
+To get all the possible routes from start to the end in an array hit the following endpoint   
+```
+curl --location --request GET "http://localhost:3000/api/v1/chatWithUser/routes?lesson=labels"
+```
+
+If no query parameter then it will assume the lesson to be all or nothing to specify lesson lables add a query parameter 
+
+Expected Output.   
+
+```  
+{
+    "success": true,
+    "resp": [
+        "PGG",
+        "DFZ",
+        "TNA",
+        "AXT",
+        "EQC",
+        "XQP",
+        "GYU",
+        "UCH",
+        "VNT",
+        "JML",
+        "NRB",
+        "QAA",
+        "WSL",
+        "ANG"
+    ]
+}
+```
+
+CHECK IF THE ID HAS REACHED OR GONE PAST ENDPOINT 
+
+```
+curl --location --request GET "http://localhost:3000/api/v1/chatWithUser/reachedCheckpoint?lesson=labels&id=JML"
+```
+
+If not lesson specified it will assume it to be all or nothing lesson. 
+No ID specified then it will throw an error.   
+
+EXPECTED OUTPUT. 
+
+```
+{
+    "success": true,
+    "checkpointReached": true
+}
+```
+
+If checkpoint reached it will return true else false. 
+
+
 

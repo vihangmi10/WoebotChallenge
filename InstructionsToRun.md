@@ -194,7 +194,7 @@ Expected Output
 If the endpoint stage is reached **lessonComplete** will be **true**.  
 If the chat is complete that is user has entered a bye **chatComplete** will be **true**. 
 
-GET ALL ROUTES FOR A LESSON 
+**GET ALL ROUTES FOR A LESSON **
 To get all the possible routes from start to the end in an array hit the following endpoint   
 ```
 curl --location --request GET "http://localhost:3000/api/v1/chatWithUser/routes?lesson=labels"
@@ -226,7 +226,7 @@ Expected Output.
 }
 ```
 
-CHECK IF THE ID HAS REACHED OR GONE PAST ENDPOINT 
+**CHECK IF THE ID HAS REACHED OR GONE PAST ENDPOINT **
 
 ```
 curl --location --request GET "http://localhost:3000/api/v1/chatWithUser/reachedCheckpoint?lesson=labels&id=JML"
